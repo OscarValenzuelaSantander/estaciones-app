@@ -7,6 +7,10 @@ import MermasPage from './pages/MermasPage';
 import EstacionPage from './pages/EstacionPage';
 import TrabajoPage from './pages/TrabajoPage';
 
+
+import AsignacionTrabajoPage from './pages/AsignacionTrabajoPage';
+import AsignacionTrabajoFormPage from './pages/AsignacionTrabajoFormPage';
+
 const App: React.FC = () => {
   return (
     <Router>
@@ -17,6 +21,10 @@ const App: React.FC = () => {
         <Link to="/mermas">Mermas</Link>
         <Link to="/estaciones">Estaciones</Link>
         <Link to="/trabajos">Trabajos</Link>
+        
+
+        <Link to="/crear-asignacion">Crear Asignacion</Link>
+        <Link to="/asignaciones-trabajo">Asignaciones de trabajos</Link>
       </nav>
 
       <Routes>
@@ -27,6 +35,13 @@ const App: React.FC = () => {
         <Route path="/mermas" element={<MermasPage />} />
         <Route path="/estaciones" element={<EstacionPage />} />
         <Route path="/trabajos" element={<TrabajoPage />} />
+        
+        
+        <Route path="/asignaciones-trabajo" element={<AsignacionTrabajoPage />} />
+        <Route path="/crear-asignacion" element={<AsignacionTrabajoFormPage />} />
+
+
+
       </Routes>
     </Router>
   );
