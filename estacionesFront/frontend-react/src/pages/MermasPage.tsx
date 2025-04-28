@@ -12,10 +12,16 @@ const MermasPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Gestión de Mermas</h1>
-      <MermaForm setMermas={setMermas} />
-      <MermaList mermas={mermas} />
+    <div className="container mt-5">
+      <div className="card p-4 shadow-sm mb-4">
+        <h2 className="text-center mb-4">Registrar Nueva Merma</h2>
+        <MermaForm setMermas={setMermas} />
+      </div>
+
+      <div className="card p-4 shadow-sm">
+        <h2 className="text-center mb-4">Listado de Mermas</h2>
+        <MermaList mermas={mermas} />
+      </div>
     </div>
   );
 };

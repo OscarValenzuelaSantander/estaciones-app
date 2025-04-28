@@ -13,3 +13,7 @@ export const obtenerAsignacionesTrabajo = () => {
 export const obtenerAsignacionTrabajoPorId = (id: number) => {
   return axios.get(`${API_URL}/${id}`);
 };
+
+export const obtenerAsignacionesPorTrabajador = (trabajadorId: number) => {
+  return axios.get(`${API_URL}/trabajador/${trabajadorId}`);
+};

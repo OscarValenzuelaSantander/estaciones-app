@@ -17,15 +17,25 @@ const EstacionList = ({ recargar }: { recargar: boolean }) => {
   }, [recargar]);
 
   return (
-    <div>
-      <h4>Lista de Estaciones</h4>
-      <ul className="list-group">
-        {estaciones.map((e) => (
-          <li key={e.id} className="list-group-item">
-            <strong>{e.nombre}</strong> - {e.ubicacion}
-          </li>
-        ))}
-      </ul>
+    <div className="container mt-4">
+      <div className="card p-4 shadow-sm">
+        
+
+        {estaciones.length > 0 ? (
+          <ul className="list-group">
+            {estaciones.map((e) => (
+              <li key={e.id} className="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                  <strong>{e.nombre}</strong>
+                </span>
+                <span className="text-muted">{e.ubicacion}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-center text-muted">No hay estaciones registradas.</p>
+        )}
+      </div>
     </div>
   );
 };

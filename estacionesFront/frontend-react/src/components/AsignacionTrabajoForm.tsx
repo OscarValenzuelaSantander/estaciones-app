@@ -67,7 +67,7 @@ const AsignacionTrabajoForm = () => {
     try {
       await axios.post('http://localhost:8080/api/asignaciones-trabajo', nuevaAsignacion);
       alert('Asignación creada correctamente');
-      // Limpieza de campos
+      // Limpiar campos
       setTrabajoId(null);
       setTrabajadorId(null);
       setProductoId(null);
@@ -79,61 +79,68 @@ const AsignacionTrabajoForm = () => {
   };
 
   return (
-    <div>
-      <h4>Crear nueva Asignación de Trabajo</h4>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label>Trabajo:</label>
-          <select className="form-select" value={trabajoId ?? ''} onChange={e => setTrabajoId(Number(e.target.value))} required>
-            <option value="">Seleccione un trabajo</option>
-            {trabajos.map(t => (
-              <option key={t.id} value={t.id}>
-                {t.tipoTrabajo} - {t.fechaTrabajo}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-3">
-          <label>Trabajador:</label>
-          <select className="form-select" value={trabajadorId ?? ''} onChange={e => setTrabajadorId(Number(e.target.value))} required>
-            <option value="">Seleccione un trabajador</option>
-            {trabajadores.map(t => (
-              <option key={t.id} value={t.id}>{t.nombreCompleto}</option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-3">
-          <label>Producto:</label>
-          <select className="form-select" value={productoId ?? ''} onChange={e => setProductoId(Number(e.target.value))} required>
-            <option value="">Seleccione un producto</option>
-            {productos.map(p => (
-              <option key={p.id} value={p.id}>{p.nombre}</option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-3">
-          <label>Estación:</label>
-          <select className="form-select" value={estacionId ?? ''} onChange={e => setEstacionId(Number(e.target.value))} required>
-            <option value="">Seleccione una estación</option>
-            {estaciones.map(e => (
-              <option key={e.id} value={e.id}>{e.nombre}</option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-3">
-          <label>Fecha de Asignación:</label>
-          <input
-            type="date"
-            className="form-control"
-            value={fechaAsignacion}
-            onChange={e => setFechaAsignacion(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Crear Asignación
-        </button>
-      </form>
+    <div className="container mt-4">
+      <div className="card p-4 shadow-sm">
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">Trabajo:</label>
+            <select className="form-select" value={trabajoId ?? ''} onChange={e => setTrabajoId(Number(e.target.value))} required>
+              <option value="">Seleccione un trabajo</option>
+              {trabajos.map(t => (
+                <option key={t.id} value={t.id}>
+                  {t.tipoTrabajo} - {t.fechaTrabajo}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Trabajador:</label>
+            <select className="form-select" value={trabajadorId ?? ''} onChange={e => setTrabajadorId(Number(e.target.value))} required>
+              <option value="">Seleccione un trabajador</option>
+              {trabajadores.map(t => (
+                <option key={t.id} value={t.id}>{t.nombreCompleto}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Producto:</label>
+            <select className="form-select" value={productoId ?? ''} onChange={e => setProductoId(Number(e.target.value))} required>
+              <option value="">Seleccione un producto</option>
+              {productos.map(p => (
+                <option key={p.id} value={p.id}>{p.nombre}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Estación:</label>
+            <select className="form-select" value={estacionId ?? ''} onChange={e => setEstacionId(Number(e.target.value))} required>
+              <option value="">Seleccione una estación</option>
+              {estaciones.map(e => (
+                <option key={e.id} value={e.id}>{e.nombre}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Fecha de Asignación:</label>
+            <input
+              type="date"
+              className="form-control"
+              value={fechaAsignacion}
+              onChange={e => setFechaAsignacion(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" className="btn btn-success w-100">
+            Crear Asignación
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

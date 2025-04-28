@@ -12,10 +12,16 @@ const EntradasPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Gestión de Entradas</h1>
-      <EntradaForm setEntradas={setEntradas} />
-      <EntradaList entradas={entradas} />
+    <div className="container mt-5">
+      <div className="card p-4 shadow-sm mb-4">
+        <h2 className="text-center mb-4">Registrar Producto</h2>
+        <EntradaForm setEntradas={setEntradas} />
+      </div>
+
+      <div className="card p-4 shadow-sm">
+        <h2 className="text-center mb-4">Listado de Productos</h2>
+        <EntradaList entradas={entradas} />
+      </div>
     </div>
   );
 };

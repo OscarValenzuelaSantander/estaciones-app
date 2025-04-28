@@ -18,30 +18,40 @@ const TrabajoForm = ({ onGuardar }: { onGuardar: () => void }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h4>Crear Trabajo</h4>
-      <div className="mb-3">
-        <label className="form-label">Tipo de Trabajo:</label>
-        <input
-          type="text"
-          className="form-control"
-          value={tipoTrabajo}
-          onChange={(e) => setTipoTrabajo(e.target.value)}
-          required
-        />
+    <div className="container mt-4">
+      <div className="card p-4 shadow-sm">
+        
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">Tipo de Trabajo:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={tipoTrabajo}
+              onChange={(e) => setTipoTrabajo(e.target.value)}
+              required
+              placeholder="Ej: Instalación de FO, Mantenimiento, etc."
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Fecha del Trabajo:</label>
+            <input
+              type="date"
+              className="form-control"
+              value={fechaTrabajo}
+              onChange={(e) => setFechaTrabajo(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" className="btn btn-success w-100">
+            Guardar Trabajo
+          </button>
+        </form>
       </div>
-      <div className="mb-3">
-        <label className="form-label">Fecha:</label>
-        <input
-          type="date"
-          className="form-control"
-          value={fechaTrabajo}
-          onChange={(e) => setFechaTrabajo(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">Guardar</button>
-    </form>
+    </div>
   );
 };
 

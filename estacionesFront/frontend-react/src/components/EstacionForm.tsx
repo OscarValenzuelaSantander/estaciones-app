@@ -18,30 +18,41 @@ const EstacionForm = ({ onAgregar }: { onAgregar: () => void }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h4>Agregar Estación</h4>
-      <div className="mb-3">
-        <label className="form-label">Nombre:</label>
-        <input
-          type="text"
-          className="form-control"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-          required
-        />
+    <div className="container mt-4">
+      <div className="card p-4 shadow-sm">
+        
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">Nombre:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              required
+              placeholder="Ingrese el nombre de la estación"
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Ubicación:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={ubicacion}
+              onChange={(e) => setUbicacion(e.target.value)}
+              required
+              placeholder="Ingrese la ubicación de la estación"
+            />
+          </div>
+
+          <button type="submit" className="btn btn-success w-100">
+            Guardar Estación
+          </button>
+        </form>
       </div>
-      <div className="mb-3">
-        <label className="form-label">Ubicación:</label>
-        <input
-          type="text"
-          className="form-control"
-          value={ubicacion}
-          onChange={(e) => setUbicacion(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">Guardar</button>
-    </form>
+    </div>
   );
 };
 

@@ -4,7 +4,6 @@ import { obtenerProductos } from '../services/productoService';
 import ProductoForm from '../components/ProductoForm';
 import ProductoList from '../components/ProductoList';
 
-// 👇 Primero defines el componente
 const ProductosPage: React.FC = () => {
   const [productos, setProductos] = useState<Producto[]>([]);
 
@@ -13,13 +12,18 @@ const ProductosPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Gestión de Productos</h1>
-      <ProductoForm setProductos={setProductos} />
-      <ProductoList productos={productos} />
+    <div className="container mt-5">
+      <div className="card p-4 shadow-sm mb-4">
+        <h2 className="text-center mb-4">Agregar Nuevo Producto</h2>
+        <ProductoForm setProductos={setProductos} />
+      </div>
+
+      <div className="card p-4 shadow-sm">
+        <h2 className="text-center mb-4">Listado de Productos</h2>
+        <ProductoList productos={productos} />
+      </div>
     </div>
   );
 };
 
-// 👇 Luego lo exportas como default
 export default ProductosPage;

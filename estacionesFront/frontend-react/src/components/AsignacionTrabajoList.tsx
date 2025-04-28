@@ -40,32 +40,37 @@ const AsignacionTrabajoList = () => {
   };
 
   return (
-    <div>
-      <h4>Listado de Asignaciones de Trabajo</h4>
-      <table className="table table-bordered">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Trabajo</th>
-            <th>Trabajador</th>
-            <th>Producto</th>
-            <th>Estación</th>
-            <th>Fecha de Asignación</th>
-          </tr>
-        </thead>
-        <tbody>
-          {asignaciones.map((asignacion) => (
-            <tr key={asignacion.id}>
-              <td>{asignacion.id}</td>
-              <td>{asignacion.trabajo?.tipoTrabajo} - {asignacion.trabajo?.fechaTrabajo}</td>
-              <td>{asignacion.trabajador?.nombreCompleto}</td>
-              <td>{asignacion.producto?.nombre}</td>
-              <td>{asignacion.estacion?.nombre}</td>
-              <td>{asignacion.fechaAsignacion}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="container mt-4">
+      <div className="card p-4 shadow-sm">
+        <h2 className="text-center mb-4">Listado de Asignaciones de Trabajo</h2>
+
+        <div className="table-responsive">
+          <table className="table table-striped table-hover table-bordered rounded shadow-sm">
+            <thead className="table-primary">
+              <tr>
+                <th>ID</th>
+                <th>Trabajo</th>
+                <th>Trabajador</th>
+                <th>Producto</th>
+                <th>Estación</th>
+                <th>Fecha de Asignación</th>
+              </tr>
+            </thead>
+            <tbody>
+              {asignaciones.map((asignacion) => (
+                <tr key={asignacion.id}>
+                  <td>{asignacion.id}</td>
+                  <td>{asignacion.trabajo?.tipoTrabajo} - {asignacion.trabajo?.fechaTrabajo}</td>
+                  <td>{asignacion.trabajador?.nombreCompleto}</td>
+                  <td>{asignacion.producto?.nombre}</td>
+                  <td>{asignacion.estacion?.nombre}</td>
+                  <td>{asignacion.fechaAsignacion}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

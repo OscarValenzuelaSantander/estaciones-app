@@ -29,27 +29,64 @@ const TrabajadorForm: React.FC<Props> = ({ setTrabajadores }) => {
   };
 
   return (
-    <div>
-      <h2>Agregar Trabajador</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre completo:</label>
-          <input value={nombreCompleto} onChange={e => setNombreCompleto(e.target.value)} required />
-        </div>
-        <div>
-          <label>RUT:</label>
-          <input value={rut} onChange={e => setRut(e.target.value)} required />
-        </div>
-        <div>
-          <label>Cargo:</label>
-          <input value={cargo} onChange={e => setCargo(e.target.value)} required />
-        </div>
-        <div>
-          <label>Área:</label>
-          <input value={area} onChange={e => setArea(e.target.value)} required />
-        </div>
-        <button type="submit">Guardar</button>
-      </form>
+    <div className="container mt-4">
+      <div className="card p-4 shadow-sm">
+       
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">Nombre completo:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={nombreCompleto}
+              onChange={e => setNombreCompleto(e.target.value)}
+              required
+              placeholder="Ingrese el nombre completo"
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">RUT:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={rut}
+              onChange={e => setRut(e.target.value)}
+              required
+              placeholder="Ingrese el RUT del trabajador"
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Cargo:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={cargo}
+              onChange={e => setCargo(e.target.value)}
+              required
+              placeholder="Ej: Capataz, Supervisor, Técnico, etc."
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Área:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={area}
+              onChange={e => setArea(e.target.value)}
+              required
+              placeholder="Ej: Planta Externa, Instalaciones, etc."
+            />
+          </div>
+
+          <button type="submit" className="btn btn-primary w-100">
+            Guardar Trabajador
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

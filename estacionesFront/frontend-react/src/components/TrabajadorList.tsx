@@ -7,30 +7,35 @@ type Props = {
 
 const TrabajadorList: React.FC<Props> = ({ trabajadores }) => {
   return (
-    <div>
-      <h2>Lista de Trabajadores</h2>
-      <table border={1} cellPadding={10}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>RUT</th>
-            <th>Cargo</th>
-            <th>Área</th>
-          </tr>
-        </thead>
-        <tbody>
-          {trabajadores.map(t => (
-            <tr key={t.id}>
-              <td>{t.id}</td>
-              <td>{t.nombreCompleto}</td>
-              <td>{t.rut}</td>
-              <td>{t.cargo}</td>
-              <td>{t.area}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="container mt-4">
+      <div className="card p-4 shadow-sm">
+       
+
+        <div className="table-responsive">
+          <table className="table table-striped table-hover table-bordered rounded shadow-sm">
+            <thead className="table-info">
+              <tr>
+                <th>ID</th>
+                <th>Nombre Completo</th>
+                <th>RUT</th>
+                <th>Cargo</th>
+                <th>Área</th>
+              </tr>
+            </thead>
+            <tbody>
+              {trabajadores.map((t) => (
+                <tr key={t.id}>
+                  <td>{t.id}</td>
+                  <td>{t.nombreCompleto}</td>
+                  <td>{t.rut}</td>
+                  <td>{t.cargo}</td>
+                  <td>{t.area}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

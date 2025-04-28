@@ -14,7 +14,7 @@ const EntradaForm: React.FC<Props> = ({ setEntradas }) => {
     e.preventDefault();
     try {
       const nuevaEntrada = {
-        producto: { id: Number(productoId) }, // suponiendo que backend lo acepta así
+        producto: { id: Number(productoId) },
         cantidad,
         fecha: new Date().toISOString()
       };
@@ -31,19 +31,41 @@ const EntradaForm: React.FC<Props> = ({ setEntradas }) => {
   };
 
   return (
-    <div>
-      <h2>Registrar Entrada</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>ID Producto:</label>
-          <input value={productoId} onChange={e => setProductoId(e.target.value)} required />
-        </div>
-        <div>
-          <label>Cantidad:</label>
-          <input type="number" value={cantidad} onChange={e => setCantidad(Number(e.target.value))} required />
-        </div>
-        <button type="submit">Guardar Entrada</button>
-      </form>
+    <div className="container mt-4">
+      <div className="card p-4 shadow-sm">
+       
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">ID Producto:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={productoId}
+              onChange={e => setProductoId(e.target.value)}
+              required
+              placeholder="Ingrese el ID del producto"
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Cantidad:</label>
+            <input
+              type="number"
+              className="form-control"
+              value={cantidad}
+              onChange={e => setCantidad(Number(e.target.value))}
+              required
+              min="1"
+              placeholder="Ingrese la cantidad"
+            />
+          </div>
+
+          <button type="submit" className="btn btn-success w-100">
+            Guardar Entrada
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

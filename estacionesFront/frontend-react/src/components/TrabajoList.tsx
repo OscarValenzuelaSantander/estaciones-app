@@ -17,15 +17,23 @@ const TrabajoList = ({ recargar }: { recargar: boolean }) => {
   }, [recargar]);
 
   return (
-    <div>
-      <h4>Lista de Trabajos</h4>
-      <ul className="list-group">
-        {trabajos.map((t) => (
-          <li key={t.id} className="list-group-item">
-            <strong>{t.tipoTrabajo}</strong> - {t.fechaTrabajo}
-          </li>
-        ))}
-      </ul>
+    <div className="container mt-4">
+      <div className="card p-4 shadow-sm">
+        
+
+        {trabajos.length > 0 ? (
+          <ul className="list-group">
+            {trabajos.map((t) => (
+              <li key={t.id} className="list-group-item d-flex justify-content-between align-items-center">
+                <strong>{t.tipoTrabajo}</strong>
+                <span className="text-muted">{new Date(t.fechaTrabajo).toLocaleDateString()}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-center text-muted">No hay trabajos registrados.</p>
+        )}
+      </div>
     </div>
   );
 };
