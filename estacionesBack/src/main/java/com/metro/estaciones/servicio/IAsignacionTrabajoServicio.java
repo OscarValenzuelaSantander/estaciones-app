@@ -11,4 +11,7 @@ public interface IAsignacionTrabajoServicio {
     Optional<AsignacionTrabajo> buscarPorId(Long id);
 
     AsignacionTrabajo guardar(AsignacionTrabajo asignacionTrabajo);
+
+    List<AsignacionTrabajo> listarPorTrabajadorId(Long trabajadorId);
+
 }

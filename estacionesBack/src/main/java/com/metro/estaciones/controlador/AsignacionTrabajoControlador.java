@@ -35,4 +35,12 @@ public class AsignacionTrabajoControlador {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/trabajador/{trabajadorId}")
+    public ResponseEntity<List<AsignacionTrabajo>> listarPorTrabajador(@PathVariable Long trabajadorId) {
+        List<AsignacionTrabajo> asignaciones = asignacionTrabajoServicio.listarPorTrabajadorId(trabajadorId);
+        return ResponseEntity.ok(asignaciones);
+    }
+
+
 }

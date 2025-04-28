@@ -29,4 +29,11 @@ public class AsignacionTrabajoServicio implements IAsignacionTrabajoServicio {
     public AsignacionTrabajo guardar(AsignacionTrabajo asignacionTrabajo) {
         return asignacionTrabajoRepositorio.save(asignacionTrabajo);
     }
+
+    @Override
+    public List<AsignacionTrabajo> listarPorTrabajadorId(Long trabajadorId) {
+        return asignacionTrabajoRepositorio.findByTrabajadorId(trabajadorId);
+    }
+
+
 }
